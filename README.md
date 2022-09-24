@@ -1,1 +1,5 @@
 # Lux-Meter-using-Tiva
+
+## Making of a Practical Lux Meter (Light Intensity Meter) using TM4C123GH6PM 32-bit Microcontroller using IAR Workbench and Embedded C Coding on IAR platform
+
+In this project we will talk about measuring the light intensity using Light Dependent Resistor (LDR) or Photoresistor and TM4C123GH6PM which is a 32-bit Arm Cortex-M4F based microcontroller. We will first start with the observations by defining the relation between light intensity and resistance so that we can study the graph by manually plotting it, after noting the observations we will try to calculate the constants which we will obtain from our graph and also check its accuracy with the help of datasheet of LDR then we will make a potential divider circuit and take the analog reading of the voltage from it using TM4C123GH6PM and then we will manipulate that voltage to find the resistance of the LDR and ultimately doing calculations we will find the experimental value of Light Intensity for a given LDR, which is the aim of our project.
