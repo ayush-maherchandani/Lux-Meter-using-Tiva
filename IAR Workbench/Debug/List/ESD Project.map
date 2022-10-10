@@ -1,0 +1,283 @@
+###############################################################################
+#
+# IAR ELF Linker V9.20.2.320/W64 for ARM                  30/Apr/2022  13:10:00
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\GOGOL\Desktop\ESD Project\Debug\Exe\ESD Project.out
+#    Map file     =
+#        C:\Users\GOGOL\Desktop\ESD Project\Debug\List\ESD Project.map
+#    Command line =
+#        -f "C:\Users\GOGOL\Desktop\ESD Project\Debug\Exe\ESD Project.out.rsp"
+#        ("C:\Users\GOGOL\Desktop\ESD Project\Debug\Obj\main.o"
+#        --no_out_extension -o "C:\Users\GOGOL\Desktop\ESD
+#        Project\Debug\Exe\ESD Project.out" --redirect _Printf=_PrintfFullNoMb
+#        --redirect _Scanf=_ScanfFullNoMb --map "C:\Users\GOGOL\Desktop\ESD
+#        Project\Debug\List\ESD Project.map" --config "C:\Program Files\IAR
+#        Systems\Embedded Workbench
+#        9.0\arm\config\linker\TexasInstruments\TM4C123GH6.icf" --semihosting
+#        --entry __iar_program_start --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 4K, alignment = 8 { };
+define block HEAP with size = 8K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            ro code          0x0    0x40  vector_table_M.o [4]
+                                   - 0x40    0x40
+
+"P1":                                      0x197c
+  .text              ro code         0x40   0x644  pow64.o [3]
+  .text              ro code        0x684    0x20  DblCmpEq.o [3]
+  .text              ro code        0x6a4    0x70  frexp.o [3]
+  .text              ro code        0x714    0x34  DblCmpLe.o [3]
+  .text              ro code        0x748   0x1aa  DblMul.o [3]
+  .text              ro code        0x8f2    0x2a  copy_init3.o [4]
+  .text              ro code        0x91c   0x25e  DblAddSub.o [3]
+  .text              ro code        0xb7a     0x2  vectortrap_M.o [4]
+  .text              ro code        0xb7c    0x36  DblToS32.o [3]
+  .text              ro code        0xbb4    0x22  S32ToDbl.o [3]
+  .text              ro code        0xbd8   0x246  DblDiv.o [3]
+  .text              ro code        0xe20    0x34  DblCmpGe.o [3]
+  .text              ro code        0xe54   0x2d4  iar_Exp64.o [3]
+  .text              ro code       0x1128   0x13a  ldexp.o [3]
+  .rodata            const         0x1268   0x420  pow64.o [3]
+  .text              ro code       0x1688   0x178  main.o [1]
+  .text              ro code       0x1800    0x1c  U32ToDbl.o [3]
+  .text              ro code       0x181c    0x68  DblToFlt.o [3]
+  .text              ro code       0x1884    0x48  FltToDbl.o [3]
+  .text              ro code       0x18cc    0x16  math_wrappers64.o [3]
+  .text              ro code       0x18e4    0x28  data_init.o [4]
+  .text              ro code       0x190c    0x22  fpinit_M.o [3]
+  .iar.init_table    const         0x1930    0x14  - Linker created -
+  .text              ro code       0x1944    0x1e  cmain.o [4]
+  .text              ro code       0x1962     0x4  low_level_init.o [2]
+  .text              ro code       0x1966     0x4  exit.o [2]
+  .text              ro code       0x196c     0xa  cexit.o [4]
+  .text              ro code       0x1978    0x14  exit.o [5]
+  .text              ro code       0x198c    0x1c  cstartup_M.o [4]
+  Initializer bytes  const         0x19a8    0x14  <for P2-1>
+  .rodata            const         0x19bc     0x0  copy_init3.o [4]
+                                 - 0x19bc  0x197c
+
+"P2", part 1 of 2:                           0x14
+  P2-1                        0x2000'0000    0x14  <Init block>
+    .data            inited   0x2000'0000     0x4  main.o [1]
+    .data            inited   0x2000'0004     0x4  main.o [1]
+    .bss             inited   0x2000'0008     0x4  main.o [1]
+    .bss             inited   0x2000'000c     0x4  main.o [1]
+    .bss             inited   0x2000'0010     0x4  main.o [1]
+                            - 0x2000'0014    0x14
+
+"P2", part 2 of 2:                         0x1000
+  CSTACK                      0x2000'0018  0x1000  <Block>
+    CSTACK           uninit   0x2000'0018  0x1000  <Block tail>
+                            - 0x2000'1018  0x1000
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0x19bc     0x3'ffff  0x3'e644
+  0x2000'0014  0x2000'0017       0x4
+  0x2000'1018  0x2000'7fff    0x6fe8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Copy (__iar_copy_init3)
+    1 source range, total size 0x14:
+               0x19a8  0x14
+    1 destination range, total size 0x14:
+          0x2000'0000  0x14
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+command line/config:
+    --------------------------------------------
+    Total:
+
+C:\Users\GOGOL\Desktop\ESD Project\Debug\Obj: [1]
+    main.o                 376       20       20
+    --------------------------------------------
+    Total:                 376       20       20
+
+dl7M_tln.a: [2]
+    exit.o                   4
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                   8
+
+m7M_tls.a: [3]
+    DblAddSub.o            606
+    DblCmpEq.o              32
+    DblCmpGe.o              52
+    DblCmpLe.o              52
+    DblDiv.o               582
+    DblMul.o               426
+    DblToFlt.o             104
+    DblToS32.o              54
+    FltToDbl.o              72
+    S32ToDbl.o              34
+    U32ToDbl.o              28
+    fpinit_M.o              34
+    frexp.o                112
+    iar_Exp64.o            724
+    ldexp.o                314
+    math_wrappers64.o       22
+    pow64.o              1'604    1'056
+    --------------------------------------------
+    Total:               4'852    1'056
+
+rt7M_tl.a: [4]
+    cexit.o                 10
+    cmain.o                 30
+    copy_init3.o            42
+    cstartup_M.o            28
+    data_init.o             40
+    vector_table_M.o        64
+    vectortrap_M.o           2
+    --------------------------------------------
+    Total:                 216
+
+shb_l.a: [5]
+    exit.o                  20
+    --------------------------------------------
+    Total:                  20
+
+    Gaps                    12        8
+    Linker created                   20    4'096
+------------------------------------------------
+    Grand Total:         5'484    1'104    4'116
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x1930          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x1944          --   Gb  - Linker created -
+?main                        0x1945         Code  Gb  cmain.o [4]
+B                       0x2000'0000    0x4  Data  Gb  main.o [1]
+BusFault_Handler              0xb7b         Code  Wk  vectortrap_M.o [4]
+CSTACK$$Base            0x2000'0018          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1018          --   Gb  - Linker created -
+DebugMon_Handler              0xb7b         Code  Wk  vectortrap_M.o [4]
+HardFault_Handler             0xb7b         Code  Wk  vectortrap_M.o [4]
+LUX                     0x2000'0010    0x4  Data  Gb  main.o [1]
+MemManage_Handler             0xb7b         Code  Wk  vectortrap_M.o [4]
+NMI_Handler                   0xb7b         Code  Wk  vectortrap_M.o [4]
+PendSV_Handler                0xb7b         Code  Wk  vectortrap_M.o [4]
+R_LDR                   0x2000'0008    0x4  Data  Gb  main.o [1]
+Region$$Table$$Base          0x1930          --   Gb  - Linker created -
+Region$$Table$$Limit         0x1944          --   Gb  - Linker created -
+SVC_Handler                   0xb7b         Code  Wk  vectortrap_M.o [4]
+SysTick_Handler               0xb7b         Code  Wk  vectortrap_M.o [4]
+UsageFault_Handler            0xb7b         Code  Wk  vectortrap_M.o [4]
+__aeabi_cdcmpeq               0x685         Code  Gb  DblCmpEq.o [3]
+__aeabi_cdcmple               0x715         Code  Gb  DblCmpLe.o [3]
+__aeabi_cdrcmple              0xe21         Code  Gb  DblCmpGe.o [3]
+__aeabi_d2f                  0x181d         Code  Gb  DblToFlt.o [3]
+__aeabi_d2iz                  0xb7d         Code  Gb  DblToS32.o [3]
+__aeabi_dadd                  0x91d         Code  Gb  DblAddSub.o [3]
+__aeabi_ddiv                  0xbd9         Code  Gb  DblDiv.o [3]
+__aeabi_dmul                  0x749         Code  Gb  DblMul.o [3]
+__aeabi_dsub                  0xa99         Code  Gb  DblAddSub.o [3]
+__aeabi_f2d                  0x1885         Code  Gb  FltToDbl.o [3]
+__aeabi_i2d                   0xbb5         Code  Gb  S32ToDbl.o [3]
+__aeabi_ui2d                 0x1801         Code  Gb  U32ToDbl.o [3]
+__cmain                      0x1945         Code  Gb  cmain.o [4]
+__exit                       0x1979   0x14  Code  Gb  exit.o [5]
+__iar_Exp64                   0xe55  0x26c  Code  Gb  iar_Exp64.o [3]
+__iar_copy_init3              0x8f3   0x2a  Code  Gb  copy_init3.o [4]
+__iar_data_init3             0x18e5   0x28  Code  Gb  data_init.o [4]
+__iar_frexp                   0x6b1         Code  Gb  frexp.o [3]
+__iar_frexpl                  0x6b1         Code  Gb  frexp.o [3]
+__iar_init_vfp               0x190d         Code  Gb  fpinit_M.o [3]
+__iar_ldexp64                0x1129         Code  Gb  ldexp.o [3]
+__iar_pow64                    0x41  0x644  Code  Gb  pow64.o [3]
+__iar_pow_medium               0x41  0x644  Code  Gb  pow64.o [3]
+__iar_pow_medium64             0x41  0x644  Code  Gb  pow64.o [3]
+__iar_pow_mediuml              0x41  0x644  Code  Gb  pow64.o [3]
+__iar_program_start          0x198d         Code  Gb  cstartup_M.o [4]
+__iar_scalbln64              0x1129         Code  Gb  ldexp.o [3]
+__iar_scalbn64               0x1129         Code  Gb  ldexp.o [3]
+__iar_softfp___iar_frexp64
+                              0x6a5         Code  Gb  frexp.o [3]
+__iar_softfp_frexp            0x6a5         Code  Gb  frexp.o [3]
+__iar_softfp_frexpl           0x6a5         Code  Gb  frexp.o [3]
+__iar_vfp_pow                0x18d3   0x10  Code  Gb  math_wrappers64.o [3]
+__low_level_init             0x1963    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0         Data  Gb  vector_table_M.o [4]
+_call_main                   0x1951         Code  Gb  cmain.o [4]
+_exit                        0x196d         Code  Gb  cexit.o [4]
+exit                         0x1967    0x4  Code  Gb  exit.o [2]
+ldexp                        0x1129         Code  Gb  ldexp.o [3]
+ldexpl                       0x1129         Code  Gb  ldexp.o [3]
+lnbias                       0x1268  0x420  Data  Lc  pow64.o [3]
+m                       0x2000'0004    0x4  Data  Gb  main.o [1]
+main                         0x1689  0x178  Code  Gb  main.o [1]
+pow                            0x41  0x644  Code  Gb  pow64.o [3]
+powl                           0x41  0x644  Code  Gb  pow64.o [3]
+scalbln                      0x1129         Code  Gb  ldexp.o [3]
+scalblnl                     0x1129         Code  Gb  ldexp.o [3]
+scalbn                       0x1129         Code  Gb  ldexp.o [3]
+scalbnl                      0x1129         Code  Gb  ldexp.o [3]
+voltage                 0x2000'000c    0x4  Data  Gb  main.o [1]
+
+
+[1] = C:\Users\GOGOL\Desktop\ESD Project\Debug\Obj
+[2] = dl7M_tln.a
+[3] = m7M_tls.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  5'484 bytes of readonly  code memory
+  1'104 bytes of readonly  data memory
+  4'116 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
